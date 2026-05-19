@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.coverage
+.pytest_cache/
+*.coverage
+htmlcov/
+
+# Environnement
+.env
+.venv/
+venv/
+env/
+
+# Données
+data/jobs.json
+data/jobs.csv
+
+# Notebooks
+notebooks/.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+.DS_Store
