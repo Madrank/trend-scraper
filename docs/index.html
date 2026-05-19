@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trend Scraper — Portfolio</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: system-ui, -apple-system, sans-serif; background: #0d1117; color: #c9d1d9; line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+        header { text-align: center; padding: 4rem 0 2rem; }
+        h1 { font-size: 2.5rem; color: #58a6ff; margin-bottom: .5rem; }
+        .subtitle { color: #8b949e; font-size: 1.1rem; }
+        .badges { display: flex; gap: .5rem; justify-content: center; flex-wrap: wrap; margin: 1.5rem 0; }
+        .badge { background: #21262d; padding: .3rem .8rem; border-radius: 20px; font-size: .85rem; border: 1px solid #30363d; }
+        .badge.py { border-color: #3572A5; }
+        .badge.fastapi { border-color: #009688; }
+        .badge.ml { border-color: #F7931E; }
+        .badge.dash { border-color: #FF4B4B; }
+
+        .section { margin: 3rem 0; }
+        h2 { color: #58a6ff; margin-bottom: 1rem; font-size: 1.5rem; border-bottom: 1px solid #21262d; padding-bottom: .5rem; }
+        .arch { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 2rem; font-family: monospace; white-space: pre; overflow-x: auto; font-size: .85rem; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+        .card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 1.5rem; }
+        .card h3 { color: #58a6ff; margin-bottom: .5rem; }
+        .card p { color: #8b949e; font-size: .9rem; }
+        code { background: #21262d; padding: .2rem .5rem; border-radius: 4px; font-size: .85rem; }
+        pre { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 1rem; overflow-x: auto; margin: 1rem 0; }
+        .links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem; }
+        .btn { display: inline-block; padding: .7rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 600; }
+        .btn.primary { background: #238636; color: #fff; }
+        .btn.secondary { background: #21262d; color: #c9d1d9; border: 1px solid #30363d; }
+        .btn:hover { opacity: .85; }
+        .footer { text-align: center; padding: 3rem 0; color: #484f58; font-size: .85rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Trend Scraper</h1>
+            <p class="subtitle">Analyse du marché de l'emploi tech — scraper → API → analyse ML → dashboard</p>
+            <div class="badges">
+                <span class="badge py">Python</span>
+                <span class="badge fastapi">FastAPI</span>
+                <span class="badge ml">scikit-learn</span>
+                <span class="badge dash">Streamlit</span>
+                <span class="badge">Pandas</span>
+                <span class="badge">Plotly</span>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2>Architecture</h2>
+            <div class="arch">
+┌────────────┐    ┌──────────┐    ┌───────────┐    ┌──────────┐
+│  Scraper   │───▶│  FastAPI  │───▶│  Analyse  │───▶│Dashboard │
+│ (httpx +   │    │  REST API │    │ pandas +  │    │ Streamlit│
+│  BS4)      │    │  :8000    │    │ sklearn   │    │ :8501    │
+└────────────┘    └──────────┘    └───────────┘    └──────────┘
+       │                                                │
+       └────────────────── Données ─────────────────────┘
+                            (JSON)</div>
+        </section>
+
+        <section class="section">
+            <h2>Fonctionnalités</h2>
+            <div class="features">
+                <div class="card">
+                    <h3>🕷️ Scraper</h3>
+                    <p>Multi-sources (Remotive), extraction automatique des compétences depuis les descriptions</p>
+                </div>
+                <div class="card">
+                    <h3>🌐 API REST</h3>
+                    <p>FastAPI avec pagination, filtres par compétence/source, recherche plein texte</p>
+                </div>
+                <div class="card">
+                    <h3>🧠 Analyse ML</h3>
+                    <p>TF-IDF pour les tendances, clustering K-Means avec visualisation PCA</p>
+                </div>
+                <div class="card">
+                    <h3>📈 Dashboard</h3>
+                    <p>Streamlit interactif : graphiques, métriques, exploration des données</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Stack technique</h2>
+            <pre>Scraping     → Python / httpx / BeautifulSoup
+API          → FastAPI
+Analyse      → Pandas / scikit-learn (TF-IDF, K-Means, PCA)
+Dashboard    → Streamlit / Plotly
+Tests        → pytest</pre>
+        </section>
+
+        <section class="section">
+            <h2>Démarrage rapide</h2>
+            <pre>pip install -r requirements.txt
+python -m scraper                    # Scraper les données
+uvicorn api.main:app --port 8000     # Lancer l'API
+streamlit run dashboard/app.py       # Lancer le dashboard</pre>
+        </section>
+
+        <div class="links">
+            <a href="https://github.com/Madrank/trend-scraper" class="btn primary">Voir sur GitHub</a>
+            <a href="https://github.com/Madrank/trend-scraper/blob/main/README.md" class="btn secondary">Documentation</a>
+        </div>
+
+        <footer class="footer">
+            Projet portfolio — Madrank © 2026
+        </footer>
+    </div>
+</body>
+</html>
